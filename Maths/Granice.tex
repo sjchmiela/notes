@@ -1,0 +1,173 @@
+\documentclass [a4paper, 12pt, oneside]{article}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\linespread{1.3}
+\hypersetup{
+    bookmarks=true,
+    unicode=false,
+    pdftoolbar=true,
+    pdfmenubar=true,
+    pdffitwindow=false,
+    pdfstartview={FitH},
+    pdftitle={Różności o granicach},
+    pdfauthor={Stanisław Chmiela},
+    pdfsubject={Różności o granicach},
+    pdfcreator={Stanisław Chmiela},
+    pdfproducer={Stanisław Chmiela},
+    pdfkeywords={granice} {matematyka},
+    pdfnewwindow=false,
+    colorlinks=true,
+    linkcolor=BrickRed,
+    citecolor=PineGreen,
+    filecolor=RawSienna,
+    urlcolor=MidnightBlue
+}
+\author{Stanisław Chmiela}
+\title{Granice}
+\begin{document}
+\section{Definicja granicy}
+\[
+    \lim_{n\to\infty}~a_n = g\in \mathbb{R}~\Longleftrightarrow~\forall_{\varepsilon > 0}~\exists_{N_0 \in \mathbb{R}}~\forall_{n > N_0}:~|a_n - g| < \varepsilon
+\]
+\section{Definicja granicy w nieskończoności}
+\[
+    \lim_{n\to\infty}~a_n = +\infty~\Longleftrightarrow~\forall_{M \in \mathbb{R}}~\exists_{N_0 \in \mathbb{R}}~\forall_{n > N_0}:~a_n > M
+\]
+Przykłady ciągów bez granic:
+\begin{itemize}
+    \item $a_n = \sin n$
+    \item $b_n = (-1)^n$
+    \item $c_n = (-1)^n \cdot n$
+    \item $d_n = (-1)^n \cdot \frac{3n}{2n-1}$
+\end{itemize}
+\section{Dowód, że granica ciągu nie jest w danym miejscu}
+\[
+    \lim_{n\to\infty}~\frac{5n^2 +7n -1}{3n^2 +3n +4} \neq 1 ~\Longleftrightarrow~\exists_{\varepsilon > 0}~\forall_{N_0\in\mathbb{R}}~\exists_{n\ge N_0}:~ \textcolor{Maroon}{\left|\frac{5n^2 +7n -1}{3n^2 +3n +4}-1\right| \ge \varepsilon}
+\]
+Ustalone $\varepsilon > 0$. Z \textcolor{Maroon}{równania} dostajemy kolejno:
+\[
+   \textcolor{Maroon}{ \left| \frac{5n^2 -3n^2 +7n +3n -1 -4}{3n^2 -3n +4}\right| < \varepsilon}
+\]
+\[
+    \left| \frac{2n^2 +10n -5}{3n^2 -3n +4}\right| < \varepsilon
+\]
+Możemy ściągnąć moduł i pomnożyć, ponieważ wyrażenie jest dodatnie dla $n\ge 1$.
+\[
+    (3\varepsilon-2)n^2 +(3\varepsilon-4)n +(4\varepsilon +3) > 0
+\]
+Dla $\varepsilon = \frac12$ nierówność jest spełniona dla skończonej liczby elementów, a więc nie tu jest granica.
+\section{Dowód, że ciąg nie może mieć dwóch granic}
+Hip. $g_1 \neq g_2$ są granicami ciągu $(a_n)$.
+Niech $\varepsilon = \left|\frac{g_1-g_2}{3}\right|$, $g_2 > g_1$.
+Z definicji granicy:
+\[
+    \textcolor{Violet}{\exists_{N_0\in\mathbb{R}}~\forall_{n>N_0}:~\left|a_n - g_1\right| < \varepsilon}
+\]
+Zarazem:
+\[
+    \textcolor{WildStrawberry}{\exists_{N_1\in\mathbb{R}}~\forall_{n>N_1}:~\left|a_n - g_2\right| < \varepsilon}
+\]
+A więc:
+\[
+    \textcolor{Violet}{\forall_{n>N_0}:~a_n < g_1+\varepsilon}
+\]
+\[
+    \textcolor{WildStrawberry}{\forall_{n>N_1}:~a_n > g_2-\varepsilon}
+\]
+Ponadto $\textcolor{Green}{g_1 + \varepsilon < g_2 - \varepsilon}$.
+Dostajemy:
+\[
+    \forall_{n > \max\{N_0, N_1\}}:~\textcolor{Violet}{a_n < g_1 + \varepsilon}~\textcolor{Green}{<}~\textcolor{WildStrawberry}{g_2 + \varepsilon < a_n}
+\]
+\begin{flushright}Sprzeczność.\end{flushright}
+\section{Granica sumy dwóch ciągów}
+\textbf{Założenie:}
+\[
+    \lim_{n\to\infty} a_n = a\qquad\lim_{n\to\infty} b_n = b
+\]
+\textbf{Teza:}
+\[
+    \lim_{n\to\infty} (a_n+b_n) = a+b
+\]
+\textbf{Dowód:}
+\[
+    \lim_{n\to\infty} a_n = a~\Longleftrightarrow~\forall_{\varepsilon > 0}~\exists_{N_0\in\mathbb{R}}~\forall_{n>N_0}:~\textcolor{NavyBlue}{\left|a_n -a\right| < \frac\varepsilon2}
+\]
+\[
+    \lim_{n\to\infty} b_n = b~\Longleftrightarrow~\forall_{\varepsilon > 0}~\exists_{N_1\in\mathbb{R}}~\forall_{n>N_1}:~\textcolor{Mulberry}{\left|b_n -b\right| < \frac\varepsilon2}
+\]
+Z tezy otrzymujemy:
+\[
+    \lim_{n\to\infty} (a_n+b_n) = a+b~\Longleftrightarrow~\forall_{\varepsilon > 0}~\exists_{N_2\in\mathbb{R}}~\forall_{n>N_2}:~\textcolor{RawSienna}{\left|(a_n+b_n) -(a+b)\right| < \varepsilon}
+\]
+\[
+    \textcolor{RawSienna}{\left|a_n + b_n - a - b\right|} = \left| a_n-a + b_n-b\right|
+    ~\overset{\textrm{z tw. o sumie modułów}}{\le}~
+    \textcolor{NavyBlue}{\left|a_n-a\right|} + \textcolor{Mulberry}{\left|b_n-b\right|} < \textcolor{NavyBlue}{\frac\varepsilon2}+\textcolor{Mulberry}{\frac\varepsilon2} = \varepsilon
+\]
+\begin{flushright}
+dla $n > \max\{N_0,N_1\}$
+\end{flushright}
+A więc:
+\[
+    \forall_{\varepsilon > 0}~\exists_{N_2 = \max\{N_0, N_1\}}~\forall_{n>N_2}:~ \left|a_n + b_n - (a+b)\right| < \varepsilon
+\]
+\section{Granica iloczynu dwóch ciągów}
+\textbf{Założenie:}
+\[
+    \lim_{n\to\infty} a_n = a\qquad\lim_{n\to\infty} b_n = b
+\]
+\textbf{Teza:}
+\[
+    \lim_{n\to\infty} a_nb_n = ab
+\]
+\textbf{Dowód:}
+\[
+    \lim_{n\to\infty}~a_n = g\in \mathbb{R}~\Longleftrightarrow~\forall_{\varepsilon > 0}~\exists_{N_0 \in \mathbb{R}}~\forall_{n > N_0}:~\textcolor{OliveGreen}{|a_n - g| < \varepsilon}
+\]
+\[
+    \lim_{n\to\infty}~b_n = g\in \mathbb{R}~\Longleftrightarrow~\forall_{\varepsilon > 0}~\exists_{N_1 \in \mathbb{R}}~\forall_{n > N_1}:~\textcolor{OliveGreen}{|b_n - g| < \varepsilon}
+\]
+Rozpiszmy sobie tezę:
+\begin{align*}
+    \left|a_nb_n - ab\right| &= \\
+    &= \left|a_nb_n -a_nb +a_nb -ab\right|\\
+    &= \left|a_n(b_n-b) +b(a_n-a)\right|\\
+    &\overset{\textrm{z tw. o sumie modułów}}{\le} |a_n|\textcolor{OliveGreen}{|b_n-b|} + |b|\textcolor{OliveGreen}{|a_n-a|}\\
+    &\textcolor{OliveGreen}{<} |a_n|\textcolor{OliveGreen}{\varepsilon} + |b|\textcolor{OliveGreen}{\varepsilon} \\
+    &< \max\{|a-\varepsilon|, |a+\varepsilon|\}\cdot \varepsilon + |b|\cdot \varepsilon \\
+    &= \varepsilon\underbrace{(\max\{|a-\varepsilon|, |a+\varepsilon|\} + |b|)}_{> 0}
+\end{align*}
+A zatem dla $\varepsilon > 0~\exists_{N_2 = \max\{N_0, N_1\}}:~\left|a_nb_n - ab\right| < \varepsilon\cdot c$, gdzie $c>0$, dla $n > N_2$.
+\section{Ciąg ograniczony}
+\textbf{Definicja:}
+\[
+    (a_n)\textrm{ jest ograniczony}\Longleftrightarrow \exists_{M\in\mathbb{R}}~\forall_{n\in\mathbb{N}_+}:~|a_n| < M
+\]
+\textbf{Założenie:}
+\[
+    \lim_{n\to\infty} a_n = a
+\]
+\textbf{Teza:}
+\[
+    (a_n)\textrm{ jest ograniczony}
+\]
+\textbf{Dowód:}
+Niech $\varepsilon = 1$. Wówczas $\exists_{N_0 \in \mathbb{R}}~\forall_{n>N_0}:~\left|a_n-a\right| < 1$. A co za tym idzie:
+\[
+    a-1 < a_n < a+1
+\]
+Dalej:
+\[
+    \forall_{n\in\mathbb{N}_+}:~\underbrace{\min\{a_1, a_2,\dots,a_{[N_0]}, a-1\}}_{= m_1} \le a_n \le \underbrace{\max\{a_1, a_2, \dots, a_{[N_0]}, a+1\}}_{= m_2}
+\]
+A więc wtedy $M = \max\{|m_1|, |m_2|\}$.
+\end{document}

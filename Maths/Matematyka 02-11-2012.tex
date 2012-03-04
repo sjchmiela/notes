@@ -1,0 +1,138 @@
+\documentclass [a4paper, 10pt]{article}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Matematyka UJ},    % title
+    pdfauthor={Stanisław Chmiela},     % author
+    pdfsubject={Notatki - matematyka UJ},   % subject of the document
+    pdfcreator={Stanisław Chmiela},   % creator of the document
+    pdfproducer={Stanisław Chmiela}, % producer of the document
+    pdfkeywords={matematyka uj} {notatki}, % list of keywords
+    pdfnewwindow=false,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=BrickRed,          % color of internal links
+    citecolor=PineGreen,        % color of links to bibliography
+    filecolor=RawSienna,      % color of file links
+    urlcolor=MidnightBlue      % color of external links
+}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\linespread{1.3}
+\author{Stanisław Chmiela}
+\title{Matematyka UJ}
+\begin{document}
+\maketitle
+\section{Wprowadzenie do tematu odwrotności} % (fold)
+\label{sec:wprowadzenie_do_tematu_odwrotno_ci}
+\paragraph{Definicja} Mamy liczbę $n\in\mathbb{N}$ oraz $a$ takie, że $(a,n) = 1$. Powiemy, że $b$ jest odwrotnością $a\pmod n$, jeśli $a\cdot b\equiv 1\pmod n$.
+\paragraph{Dowód} Bierzemy reszty modulo $n$ takie, że $(x_i, n) = 1$ dla $i=1,\dots,n$:
+\[
+    x_1, x_2, x_3,\dots x_k
+\]
+Przemnażamy je przez $a$:
+\[
+    ax_1, ax_2, ax_3,\dots ax_k
+\]
+Wiemy, że te reszty są cały czas parami różne. Aby to udowodnić, zauważmy, że:
+\[
+    ax_i \equiv ax_j \Rightarrow n\mid a\left(x_i-x_j\right) \Rightarrow n\mid x_i-x_j \Rightarrow i = j
+\]
+\paragraph{Wniosek} $a\cdot x_k \equiv 1\pmod n$ dla pewnego $k$.
+\[
+    \frac{x}{a} \equiv x\cdot \frac1{a} \pmod n
+\]
+Powinno być tak, że $\frac{a}{b} +\frac{c}{d} \equiv \frac{ad+bc}{bd}$. Można to udowodnić, ale nie będziemy tego robić. Musimy natomiast wiedzieć, że to działa.
+
+Policzmy $\frac23 \pmod 5$.
+Wiemy, że $x\cdot 3 \equiv 2 \pmod 5$, więc $x\equiv4\pmod 5$.
+% section wprowadzenie_do_tematu_odwrotno_ci (end)
+\section{Rozwiązywanie zadań} % (fold)
+\label{sec:rozwi_zywanie_zada_}
+    \subsection{Zadanie 1} % (fold)
+    \label{sub:zadanie_1}
+        \paragraph{Treść} Wyznaczyć $\frac{15}2\pmod 7$, $\frac34\pmod 9$, $\frac2{11}\pmod {16}$.
+        \paragraph{Rozwiązanie}
+        \subparagraph{Podpunkt $\frac{15}2$}
+            \[
+                x\cdot 2 \equiv 1\pmod 7
+            \]
+            \[
+                x \equiv 4\pmod 7
+            \]
+        \subparagraph{Podpunkt $\frac34$}
+            \[
+                x\cdot 4 \equiv 3 \pmod 9
+            \]
+            \[
+                x\equiv 3 \pmod 9
+            \]
+        \subparagraph{Podpunkt $\frac2{11}$}
+            \[
+                x\cdot 11 \equiv 2 \pmod {16}
+            \]
+            \[
+                x\cdot 11\equiv 66\pmod {16}
+            \]
+            \[
+                x\equiv 6\pmod {16}
+            \]
+    % subsection zadanie_1 (end)
+    \begin{quote}
+        \color{Sepia}
+        \section*{Algorytm na liczenie reszt}
+            Liczymy modulo $p$.
+            Jeżeli $x\not\equiv 0$, to $x^{p-1} \equiv 1\pmod p$.
+            Wiemy wtedy, że $x^{p-2}\cdot x \equiv 1\pmod p$.
+    \end{quote}
+    \begin{quote}
+    \color{Sepia}
+        \section*{Dowód tw. Wilsona}
+            \paragraph{Treść} Jeżeli $p$ jest pierwsze, $(p-1)! \equiv -1 \pmod p$.
+            \paragraph{Rozwiązanie}
+            \[
+                (p-1)! \equiv 1\cdot 2\cdot 3\cdot \dots\cdot (p-1)
+            \]
+            Paruję $x$ z $\frac1x$.
+            \[
+                x\equiv \frac1x \pmod p \Rightarrow x^2 \equiv 1\pmod p \Rightarrow p\mid(x-1)(x+1) \Rightarrow x\equiv \pm1 \pmod p
+            \]
+    \end{quote}
+    \subsection{Zadanie} % (fold)
+    \label{sub:zadanie}
+        Wyznacz wszystkie $n$, dla których istnieje $\left\{a_1,a_2,\dots,a_n\right\}$ oraz $\left\{b_1,b_2,\dots,b_n\right\}$ -- permutacje reszt. Mamy też permutację reszt $a_1+b_1, \dots, a_n+b_n$. Z jednej strony wiemy, że to jest permutacja reszt.
+        \[
+            (a_1+b_1)+(a_2+b_2)+\dots+(a_n+b_n) \equiv 1+2+\dots+n-1 \equiv \frac{n(n-1)}2
+        \]
+        \[
+            2(1+2+\dots+n-1)\equiv\frac{n(n-1)}n \equiv 0
+        \]
+        \[
+            2\not\mid n
+        \]
+    % subsection zadanie (end)
+    \subsection{Zadanie 2} % (fold)
+    \label{sub:zadanie_2}
+        \paragraph{Treść}
+        Liczby całkowite $a$ i $b$ są względnie pierwsze. Dowieść, że istnieje liczba naturalna $n$ taka, że $ab\mid a^n+b^n-1$.
+        \paragraph{Rozwiązanie}
+        \[
+            a^n + b^n \equiv (a+b)^n \equiv 1\pmod {ab}
+        \]
+        \[
+            n = \varphi(ab)
+        \]
+    % subsection zadanie_2 (end)
+% section rozwi_zywanie_zada_ (end)
+\end{document}

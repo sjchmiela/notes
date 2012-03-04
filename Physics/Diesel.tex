@@ -1,0 +1,69 @@
+\documentclass [a4paper, 12pt]{article}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Fizyka},    % title
+    pdfauthor={Stanisław Chmiela},     % author
+    pdfsubject={Sprawność silnika Diesla},   % subject of the document
+    pdfcreator={Stanisław Chmiela},   % creator of the document
+    pdfproducer={Stanisław Chmiela}, % producer of the document
+    pdfkeywords={fizyka} {diesel}, % list of keywords
+    pdfnewwindow=false,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=BrickRed,          % color of internal links
+    citecolor=PineGreen,        % color of links to bibliography
+    filecolor=RawSienna,      % color of file links
+    urlcolor=MidnightBlue      % color of external links
+}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{amsmath}
+\linespread{1.3}
+\author{Stanisław Chmiela}
+\title{Sprawność silnika Diesla}
+\begin{document}
+\maketitle
+\section{Rysunek}
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{CyklDiesla_pV}
+\end{figure}
+\section{Wyprowadzenie}
+Na odcinku $(1)$ -- izobarycznym -- gaz pobiera ciepło:
+\[
+    Q_3 = nC_p \Delta T = nC_p (T_3-T_2)
+\]
+Odcinek $(3)$, odcinku izochorycznym, gaz oddaje ciepło:
+\[
+    Q_4 = \Delta U_{(2,4)} = nC_v \Delta T = nC_v(T_1-T_4)
+\]
+Jako że $T_1 < T_4$, powinniśmy ustalić, że:
+\[
+    |Q_4| = nC_v(T_4-T_1)
+\]
+Sprawność obliczymy sobie ze wzoru
+\[
+    \eta = 1-\frac{|Q_4|}{Q_3} = 1-\frac{nC_v(T_4-T_1)}{nC_p(T_3-T_2)} = 1-\frac{C_v(T_4-T_1)}{C_p(T_3-T_2)}
+\]
+Dalej:
+\[
+    \eta = 1-\frac{C_v(\frac{p_2}{p_3} - \frac{p_1}{p_3})}{C_p(\frac{V_2}{V_3} - \frac{V_1}{V_3})} =1-{\frac{C_v}{C_p}}{{\left({\frac{V_2}{V_3}}\right)^{\kappa}-\left({\frac{V_1}{V_3}}\right)^{\kappa}}\over{{{V_2}\over{V_3}}-{{V_1}\over{V_3}}}}=1-{\frac{C_v}{C_p}}\left({\frac{V_2}{V_3}}\right)^{\kappa-1}{{1-\left({{V_1}\over{V_2}}\right)^{\kappa}}\over{1-{\frac{V_1}{V_2}}}}
+\]
+\section{Bibliografia}
+\begin{enumerate}
+    \item \url{http://www.ftj.agh.edu.pl/\~wolny/Wcbcd86b7b34db.htm}
+    \item \url{http://www.if.pw.edu.pl/\~bibliot/archiwum/adamczyk/WykLadyFO/FoWWW\_23.html}
+    \item \url{http://osilek.mimuw.edu.pl/index.php?title\=PF\_Modu\%C5\%82\_8}
+    \item \url{http://pl.wikibooks.org/wiki/Fizyka\_statystyczna/Cykle\_(obiegi)\_termodynamiczne\#Sprawno.C5.9B.C4.87\_cyklu\_Diesla}
+\end{enumerate}
+\end{document}
