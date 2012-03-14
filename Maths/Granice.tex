@@ -170,4 +170,33 @@ Dalej:
     \forall_{n\in\mathbb{N}_+}:~\underbrace{\min\{a_1, a_2,\dots,a_{[N_0]}, a-1\}}_{= m_1} \le a_n \le \underbrace{\max\{a_1, a_2, \dots, a_{[N_0]}, a+1\}}_{= m_2}
 \]
 A więc wtedy $M = \max\{|m_1|, |m_2|\}$.
+\section{Granica ciągu w danej liczbie}
+Mamy ciąg $a_n = \frac1{2n-17}$, chcemy udowodnić, że jego granicą jest liczba $a = 0$.\\
+\textbf{Założenie:}
+\[
+	a_n = \frac{1}{2n-17}
+\]
+\textbf{Teza:}
+\[
+    \lim_{n\to\infty}~\frac{1}{2n-17} = 0~\Longleftrightarrow~\forall_{\varepsilon > 0}~\exists_{N_0 \in \mathbb{R}}~\forall_{n > N_0}:~\left|\frac{1}{2n-17} - 0\right| < \varepsilon
+\]
+\textbf{Dowód:}
+Dostajemy ustalony $\varepsilon > 0$. Rozpiszmy sobie z definicji granicy.
+\[
+\left|\frac{1}{2n-17} - 0\right| < \varepsilon
+\]
+\textcolor{OliveGreen}{Dla $n\ge9$ możemy zdjąć moduł, więc zróbmy to.}
+\[
+\frac{1}{2n-17} < \varepsilon
+\]
+\[
+1 < \varepsilon(2n-17)
+\]
+\[
+1 < 2\varepsilon n - 17\varepsilon
+\]
+\[
+\textcolor{WildStrawberry}{n > \frac{1+17\varepsilon}{2\varepsilon}}
+\]
+A zatem do ustalonego $\varepsilon > 0$ można dobrać $N_0 = \max\{\textcolor{WildStrawberry}{\frac{1+17\varepsilon}{2\varepsilon}}, \textcolor{OliveGreen}{9}\}$ takie, że $\forall_{n > N_0} \left|\frac{1}{2n-17} - 0\right| < \varepsilon$.
 \end{document}
