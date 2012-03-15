@@ -186,17 +186,58 @@ Dostajemy ustalony $\varepsilon > 0$. Rozpiszmy sobie z definicji granicy.
 \left|\frac{1}{2n-17} - 0\right| < \varepsilon
 \]
 \textcolor{OliveGreen}{Dla $n\ge9$ możemy zdjąć moduł, więc zróbmy to.}
-\[
-\frac{1}{2n-17} < \varepsilon
-\]
-\[
-1 < \varepsilon(2n-17)
-\]
-\[
-1 < 2\varepsilon n - 17\varepsilon
-\]
-\[
-\textcolor{WildStrawberry}{n > \frac{1+17\varepsilon}{2\varepsilon}}
-\]
+\begin{align*}
+    \frac1{2n-17} & < \varepsilon\\
+    1 &< \varepsilon(2n-17)\\
+    1 &< 2\varepsilon n - 17\varepsilon\\
+    \textcolor{WildStrawberry}{n} & > \textcolor{WildStrawberry}{ \frac{1+17\varepsilon}{2\varepsilon}}
+\end{align*}
 A zatem do ustalonego $\varepsilon > 0$ można dobrać $N_0 = \max\{\textcolor{WildStrawberry}{\frac{1+17\varepsilon}{2\varepsilon}}, \textcolor{OliveGreen}{9}\}$ takie, że $\forall_{n > N_0} \left|\frac{1}{2n-17} - 0\right| < \varepsilon$.
+\section{Twierdzenie o trzech ciągach} % (fold)
+\label{sec:twierdzenie_o_trzech_ci_gach}
+    \textbf{Założenie:} Mamy trzy ciągi $(a_n)$, $(b_n)$, $(c_n)$, dla których:
+    \[
+        \textcolor{BlueViolet}{\exists_{N_0\in\mathbb{R}}\forall_{n>N_0}: a_n \le b_n \le c_n}
+    \]
+    \[
+        \lim_{n\to\infty} a_n = \lim_{n\to\infty} c_n = g \in \mathbb{R} \cup \{\pm\infty\}
+    \]
+    \\
+    \textbf{Teza:}
+    \[
+        \lim_{n\to\infty} b_n = g
+    \]
+    \\
+    \textbf{Dowód:}
+    Rozpiszmy sobie tezę.
+    \[
+        \lim_{n\to\infty}~a_n = g~\Longleftrightarrow~\forall_{\varepsilon > 0}~\exists_{N_1 \in \mathbb{R}}~\forall_{n>N_1}:~\textcolor{BrickRed}{\left|a_n-g\right| < \varepsilon}
+    \]
+    \[
+        \lim_{n\to\infty}~c_n = g~\Longleftrightarrow~\forall_{\varepsilon > 0}~\exists_{N_2 \in \mathbb{R}}~\forall_{n>N_2}:~\textcolor{Plum}{\left|c_n-g\right| < \varepsilon}
+    \]
+    Przyjrzyjmy się pokolorowanym elementom i rozpiszmy je.
+    \[
+        \textcolor{BrickRed}{\left|a_n-g\right| < \varepsilon}
+    \]
+    \[
+        {-\varepsilon < a_n-g < \varepsilon}
+    \]
+    \[
+        \textcolor{Bittersweet}{g-\varepsilon < a_n} < g+\varepsilon
+    \]
+    Analogicznie dla $(c_n)$:
+    \[
+        g-\varepsilon < \textcolor{Fuchsia}{c_n < g+\varepsilon}
+    \]
+    Połączmy założenie z tym, co wyliczyliśmy.
+    \[
+        \textcolor{Bittersweet}{g-\varepsilon < a_n}~\textcolor{BlueViolet}{\le b_n \le}~\textcolor{Fuchsia}{c_n < g+\varepsilon}
+    \]
+    Z tego wnioskujemy, że:
+    \[
+        \forall_{\varepsilon > 0}~\exists_{N_3 = \max\{N_0,N_1,N_2\}}~\forall_{n>N_3}:~\left|b_n-g\right| < \varepsilon
+    \]
+    Co było do udowodnienia. Do $\varepsilon > 0$ dobraliśmy $N_3 = \max\{N_0,N_1,N_2\}$ takie, że $g-\varepsilon < b_n < g+\varepsilon$.
+% section twierdzenie_o_trzech_ci_gach (end)
 \end{document}
