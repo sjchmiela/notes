@@ -4,3 +4,5 @@
 *.toc
 *.lock
 *.swp
+*.bbl
+*.blg
