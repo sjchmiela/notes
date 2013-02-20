@@ -1,0 +1,165 @@
+\documentclass [a4paper, 10pt]{article}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage[usenames,dvipsnames]{color}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Zadania},    % title
+    pdfauthor={Stanisław Chmiela},     % author
+    pdfsubject={Zadania},   % subject of the document
+    pdfcreator={Stanisław Chmiela},   % creator of the document
+    pdfproducer={Stanisław Chmiela}, % producer of the document
+    pdfkeywords={matematyka} {zadanie domowe}, % list of keywords
+    pdfnewwindow=false,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=BrickRed,          % color of internal links
+    citecolor=PineGreen,        % color of links to bibliography
+    filecolor=RawSienna,      % color of file links
+    urlcolor=MidnightBlue      % color of external links
+}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{amsmath}
+\linespread{1.3}
+\author{Stanisław Chmiela}
+\title{Zadania różne}
+\begin{document}
+\maketitle
+\section*{Zadanie 5}
+\bf Rozwiąż układ równań $\begin{cases} \mathbf{\frac{27}{2x-y} + \frac{32}{x+3y} = 7}\\\mathbf{\frac{45}{2x-y} - \frac{48}{x+3y} = -1}\end{cases}$
+
+\rm Kompletnie nie wiem co zrobić. Przepraszam. Przykro mi. Kajam się.
+\section*{Zadanie 6}
+\bf Znajdź wszystkie liczby pierwsze $\mathbf{m}$, dla których zdanie: „\it{\bf Równanie $\mathbf{|x-2| = \left||m+1|-4\right|+1}$ \bf ma dwa rozwiązania różnych znaków}\bf” jest nieprawdziwe.
+
+\rm To jedziemy z tym koksem. Rozpatrzmy przypadki. -.-
+\begin{center}
+\begin{multicols}{2}
+\begin{center}$\mathbf{x \ge 2}$\end{center}
+    $x-2 = ||m+1|-4|+1$\\
+    $x-3 = ||m+1|-4|$\\
+    \begin{multicols}{2}
+        $\mathbf{|m+1| \ge 4}$\\
+            $x-3 = |m+1|-4$\\
+            $x+1 = |m+1|$\\
+            \begin{multicols}{2}
+                $\mathbf{m \ge -1}$\\
+                    $x = m$
+                    Czyli jedno rozwiażanie, czyli zdanie jest nieprawdziwe, zapamiętajmy ten moment jako A.
+                \vfill\columnbreak
+                $\mathbf{m < -1}$\\
+                    Nawet najmniejsze dzieci wiedzą, że nie ma liczb pierwszych $< -1$.
+            \end{multicols}
+        \vfill\columnbreak
+        $\mathbf{|m+1| < 4}$\\
+            $3-x = |m+1| - 4$\\
+            $7-x = |m+1|$\\
+            \begin{multicols}{2}
+                $\mathbf{m \ge -1}$\\
+                    $x = 6-m$
+                    Czyli jedno rozwiązanie, czyli zdanie jest nieprawdziwe, zapamiętajmy ten moment jako B.
+                \vfill\columnbreak
+                $\mathbf{m < -1}$\\
+                    Nawet najmniejsze dzieci wiedzą, że nie ma liczb pierwszych $< -1$.
+            \end{multicols}
+    \end{multicols}
+\vfill\columnbreak
+\begin{center}$\mathbf{x < 2}$\end{center}
+    $2-x = ||m+1|-4|+1$\\
+    $1-x = ||m+1|-4|$\\
+    \begin{multicols}{2}
+        $\mathbf{|m+1| \ge 4}$\\
+            $1-x = |m+1|-4$\\
+            $5-x = |m+1|$\\
+            \begin{multicols}{2}
+                $\mathbf{m \ge -1}$\\
+                $5-x = m+1$\\
+                $x = 4-m$
+                Czyli jedno rozwiażanie, czyli zdanie jest nieprawdziwe, zapamiętajmy ten moment jako C.
+                \vfill\columnbreak
+                $\mathbf{m < -1}$\\
+                    Nawet najmniejsze dzieci wiedzą, że nie ma liczb pierwszych $< -1$.
+            \end{multicols}
+        \vfill\columnbreak
+        $\mathbf{|m+1| < 4}$\\
+            $x-1 = |m+1| - 4$\\
+            $x+3 = |m+1|$\\
+            \begin{multicols}{2}
+                $\mathbf{m \ge -1}$\\
+                $x+1 = m+1$\\
+                $x = m$
+                Czyli jedno rozwiażanie, czyli zdanie jest nieprawdziwe, zapamiętajmy ten moment jako D.
+                \vfill\columnbreak
+                $\mathbf{m < -1}$\\
+                    Nawet najmniejsze dzieci wiedzą, że nie ma liczb pierwszych $< -1$.
+            \end{multicols}
+    \end{multicols}
+\end{multicols}\end{center}
+Mamy te cztery momenty: A, B, C, D, nie? Dla każdego policzmy jakie liczby pierwsze $m$ nam odpowiadają:
+\begin{enumerate}[A)]
+    \item $m\ge 2 \land |m+1| \ge 4 \land m\ge-1 \Rightarrow m \ge 3$
+    \item $6-m \ge 2 \land |m+1| < 4 \land m\ge-1 \Rightarrow -1 < m \le 4$
+    \item $4-m < 2 \land |m+1| \ge 4 \land m\ge -1\Rightarrow m > 2$
+    \item $m < 2 \land \dots$ Już wiadomo, że nie będzie takich $m$, bo nie ma liczb pierwszych mniejszych od 2.
+\end{enumerate}
+Zatem praktycznie wychodzi, że dla każdej liczby pierwszej to jest spełnione. Dlatego to zadanie jest dziwne i fuj.
+
+\section*{Zadanie 7}
+\bf Znajdź wszystkie pary liczb całkowitych $\mathbf{(x,y)}$ spełniających równanie $\mathbf{xy + 5x + 2y + 3 = 0}$.
+
+\rm Pierwsze kroki są dość oczywiste:
+$$xy + 2y = -5x - 3$$
+$$y(x+2) = -5x-3$$
+$$y = \frac{-5x-3}{x+2}$$
+Tutaj uwaga! Podzieliliśmy przez $x+2$. Nie wolno nam tego robić tak se o, chyba że sprawdzimy co się dzieje dla $x=-2$. Wtedy równanie wygląda tak:
+$$-2y -10 +2y + 3 = 0$$
+$$7 = 0$$
+Nieprawda, zatem dla $x = -2$ równanie nie jest spełnione.
+
+Pojawia się teraz problem, jak znaleźć te pierońskie pary liczb całkowitych. Jedyną metodą jaka mi przychodzi do głowy to wpisanie w wolframalpha.com i obczajenie co wypluje. Ale chce mi się spać i nie wiem. :(
+
+Kuba mówi, że można narysować i powiedzieć jakie wartości wchodzą w grę, ale to jest gówniany sposób według mnie, bo nie wiemy czy gdzieś dalej (w obszarach nieobjętych rysunkiem) nie ma jakichś par punktów w liczbach całkowitych.
+
+Albo inaczej, ale to jest tak napałowo, że aż wstyd. Rysujemy sobie dość szeroki rysunek, a potem sprawdzamy skończoną liczbę punktów, które ewentualnie wchodzą w grę (raz do iksa dobieramy igreka, raz do igreka iksa).
+
+\section*{Zadanie 8}
+\bf Udowodnij, że liczba postaci $n^4 - 4n^3 - 4n^2 + 16n$, gdzie $n$ jest liczbą parzystą dodatnią większą od 4, jest podzielna przez 384.
+
+\rm No to ten, $n$ będzie postaci $2k$, gdzie $k$ jest dowolną liczbą naturalną większą od 2. Wtedy tamta liczba wygląda tak: $16k^4 - 32k^3 - 16k^2 + 16k = 16k(k^3 - 2k^2 - k + 2)$.
+
+Czyli musimy udowodnić, że $k(k^3 - 2k^2 - k + 2)$ jest podzielne przez 24 dla każdego $k$ większego od 2. Spróbujmy to zrobić indukcyjnie.
+\paragraph{Krok 1 -- sprawdzenie dla $k=3$}
+$3(3^3 - 2\cdot3^2 - 3 + 2) = 24$, co ewidentnie jest podzielne przez 24.
+\paragraph{Krok 2 -- indukcja}
+Czy $24|k(k^3 - 2k^2 - k + 2) \Longrightarrow 24|(k+1)\left((k+1)^3-2(k+1)^2 - k + 1\right)$.
+$$(k+1)\left((k+1)^3-2(k+1)^2 - k + 1 \right) = k(k^3 + 2k^2 - k - 2)$$
+
+Nieeeee wiem, nie dziaaaałaaaaaa, nie umiieeeeeeeem… :(
+
+\section*{Zadanie 5}
+Tak naprawdę to wiem co z tym zrobić. Chyba.\\
+$$\begin{cases} {\frac{27}{2x-y} + \frac{32}{x+3y} = 7}\\{\frac{45}{2x-y} - \frac{48}{x+3y} = -1}\end{cases}$$
+Pamiętamy, że wyłączamy z dziedziny wszystkie takie proste: $y = 2x, y = -\frac13x$.
+$$\begin{cases} 27(x+3y) + 32(2x-y) = 7(2x-y)(x+3y)\\45(x+3y) - 48(2x-y) = -(2x-y)(x+3y)\end{cases}$$
+$$\begin{cases} -14 x^2-35 x y+91 x+21 y^2+49 y = 0\\2x^2 + 5xy - 51x -3y^2+183y = 0\end{cases}$$
+Magiczny trick! Pomnóżmy drugie równanie przez -7!
+$$\begin{cases} -14 x^2-35 x y+91 x+21 y^2+49 y = 0\\14 x^2+35 x y-357 x-21 y^2+1281 y = 0\end{cases}$$
+Teraz zsumujmy równania! W końcu coś pięknie siądzie!
+$$x(91-357) + y(49+1281) = 0$$
+$$y = \frac15x$$
+Podstawmy $y$ do któregokolwiek równania z układu.
+$$2x^2 + 5xy - 51x -3y^2+183y = 0$$
+$$2x^2 + x^2 - 51x -\frac3{25}x^2 + \frac{183}5x = 0$$
+$$\frac{72}{25}(x-5)x = 0$$
+Zatem rozwiązaniami układu równań mogłyby być punkty $(0,0)$ i $(5,1)$. Jednak musimy sprawdzić, czy są oba w dziedzinie. Dlatego testujemy je na naszych prostych wyłączonych z dziedziny: $y = 2x, y = -\frac13x$. Punkt $(0,0)$ spełnia minimum jeden z tych warunków, zatem odrzucamy go. Natomiast $(5,1)$ pasuje! I on jest rozwiązaniem.
+\end{document}

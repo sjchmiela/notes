@@ -1,0 +1,415 @@
+\documentclass [a4paper, 10pt]{article}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Zadanie domowe},    % title
+    pdfauthor={Stanisław Chmiela},     % author
+    pdfsubject={Zadanie domowe},   % subject of the document
+    pdfcreator={Stanisław Chmiela},   % creator of the document
+    pdfproducer={Stanisław Chmiela}, % producer of the document
+    pdfkeywords={matematyka} {zadanie domowe}, % list of keywords
+    pdfnewwindow=false,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=BrickRed,          % color of internal links
+    citecolor=PineGreen,        % color of links to bibliography
+    filecolor=RawSienna,      % color of file links
+    urlcolor=MidnightBlue      % color of external links
+}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usetikzlibrary{shapes,snakes,trees}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\linespread{1.3}
+\author{Stanisław Chmiela}
+\date{11 grudnia 2012}
+\title{Matura: zestaw zamknięty XII}
+\begin{document}
+\maketitle
+
+\tikzstyle{mybox} = [draw=black, fill=white, thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[fill=black, rounded corners, text=white, font=\bfseries, right=7pt]
+\begin{multicols*}{2}
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: NIE}\\
+       Kontrprzykład: $f\left(\frac{\pi}2\right) = \sin\frac{\pi}2 + \left|\sin\frac{\pi}2\right| = 2\notin \langle0,1\rangle$
+
+       \textbf{Odpowiedź B: TAK}\\
+       Gdy cosinus jest dodatni $g(x) = 2\cos x = 2|\cos x|$, której to funkcji zbiorem wartości jest zbiór $\langle0,2\rangle$. Gdy cosinus jest ujemny, $g(x) = 0$. Zatem zbiorem wartości złożenia tych dwóch funkcji jest zbiór $\langle0,2\rangle$.
+
+       \textbf{Odpowiedź C: NIE}\\
+       Kontrprzykład: $f(\pi) = 3\cdot\cos\pi - 2 = -3-2 = -5 \notin \langle-2,1\rangle$.
+
+       \textbf{Odpowiedź D: TAK}\\
+       Sinus ma zbiór wartości $\langle-1,1\rangle$. Pomnożony przez 2: $\langle-2,2\rangle$. Po odjęciu jedynki otrzymujemy wynikowy $\langle-3,1\rangle$.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 1};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: NIE}\\
+       Ze wzorów redukcyjnych:
+       $\cos100^\circ = \cos(90^\circ+10^\circ) = -\sin10^\circ \neq \sin10^\circ$
+
+       \textbf{Odpowiedź B: TAK}\\
+       Ze wzorów redukcyjnych:
+       $\sin100^\circ = \sin(90^\circ+10^\circ) = \cos10^\circ$
+
+       \textbf{Odpowiedź C: TAK}\\
+       $\cos^2 45^\circ = \left(\frac{\sqrt2}{2}\right)^2 = \frac12 = \sin 30^\circ$
+
+       \textbf{Odpowiedź D: TAK}\\
+       $\sin(120^\circ) = 2\sin60^\circ\cos60^\circ = 2\frac{\sqrt3}{2}\frac12 = \frac{\sqrt3}{2} = \sin60^\circ$
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 2};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: TAK}\\
+       Sinus i cosinus równają się w $\alpha = 45^\circ$, wcześniej sinus jest mniejszy od cosinusa.
+
+       \textbf{Odpowiedź B: NIE}\\
+       Blisko kąta $90^\circ$ sinus równa się 1, a cosinus 0.
+
+       \textbf{Odpowiedź C: TAK}\\
+       Ze wzorów redukcyjnych wiemy, że $\sin(180^\circ-20^\circ) = \sin20^\circ$.
+
+       \textbf{Odpowiedź D: NIE}\\
+       Ze wzorów redukcyjnych wiemy, że $\cos(180^\circ-20^\circ) = -\cos20^\circ \neq \cos20^\circ$
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 3};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: NIE}\\
+       Sinus i cosinus nigdy nie przyjmują razem wartości 1, a jest to konieczne, by suma ich była równa 2.
+
+       \textbf{Odpowiedź B: NIE}\\
+       Suma sinusa i cosinusa przyjmuje największą wartość dla $x = 45^\circ$, to jest $\sqrt2$. $\sqrt3 > \sqrt2$, zatem nie ma takich $x$, które spełniałyby to równanie.
+
+       \textbf{Odpowiedź C: TAK}\\
+       Dla $x = 45^\circ$: $\sin x + \cos x = \sqrt2$
+
+       \textbf{Odpowiedź D: TAK}\\
+       Dla $x = 90^\circ$: $\sin x + \cos x = 1$
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 4};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       $\log_{\sin x} \cos x = 1 \Rightarrow \sin x = \cos x$
+       W przedziale $(0, 2\pi)$ rozwiązania są dwa: $x = \frac\pi4, x = \frac{3\pi}4$, zatem prawidłową odpowiedzią jest \textbf{odpowiedź C}.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 5};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+        $f(x) = 5\sin^2 x - 3\cos^2 x = 5(1-\cos^2x) - 3\cos^2 x = 5-8\cos^2 x$\\
+       \textbf{Odpowiedź A: NIE}\\
+       Przykład: $f(\frac\pi2) = 5$.
+
+       \textbf{Odpowiedź B: TAK}\\
+       To widać.
+
+       \textbf{Odpowiedź C: TAK}\\
+       To też widać.
+
+       \textbf{Odpowiedź D: TAK}\\
+       Funkcja jest ciągła, przyjmuje wartości ujemne oraz dodatnie, na podstawie twierdzenia Bezout'a ma miejsca zerowe.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 6};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+        $\log\tg 1^\circ+\ldots+\log\tg89^\circ =\\ \log(\tg1^\circ+\ldots+\tg89^\circ) =\\ \log(\tg1^\circ\cdot\ldots\cdot\tg44^\circ\cdot\tg45^\circ\cdot\tg(90^\circ-44^\circ)\cdot\ldots\cdot\tg(90^\circ-1^\circ)) =\\ \log(\tg1^\circ\cdot\ctg1^\circ\cdot\ldots\cdot\tg45^\circ) =\\ \log(\tg45^\circ) =\\ \log 1 = 0$\\
+       \textbf{Odpowiedź A: TAK}\\
+       \textbf{Odpowiedź B: TAK}\\
+       \textbf{Odpowiedź C: NIE}\\
+       \textbf{Odpowiedź D: NIE}\\
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 7};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: NIE}\\
+       Ze wzorów redukcyjnych: $\sin(-x) = -\sin x \neq \sin x$
+
+       \textbf{Odpowiedź B: TAK}\\
+       Ze wzorów redukcyjnych: $\sin(\pi-x) = \sin x$
+
+       \textbf{Odpowiedź C: NIE}\\
+       Ze wzorów redukcyjnych: $\sin(\pi+x) = -\sin x \neq \sin x$
+
+       \textbf{Odpowiedź D: TAK}\\
+       Ze wzorów redukcyjnych: $\sin(2\pi+x) = \sin x$
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 8};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: NIE}\\
+       $\tg(-\frac{2011}4\pi) = \tg(\frac\pi4) = 1$
+
+       \textbf{Odpowiedź B: TAK}\\
+       $\tg(-\frac\pi4) = -1$
+
+       \textbf{Odpowiedź C: NIE}\\
+       $\tg(\frac\pi4) = 1$
+
+       \textbf{Odpowiedź D: TAK}\\
+       $\tg(\frac{2011}4\pi) = \tg(-\frac\pi4) = -1$
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 9};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: TAK}\\
+       Dla $k = 1$.
+
+       \textbf{Odpowiedź B: NIE}\\
+       Badając parametrem $k$ wykres funkcji $y = \sin 2x$ na przedziale $\langle0, 2\pi\rangle$ nie ma takiego $k$, dla którego równanie miałoby 3 rozwiązania jednocześnie.
+
+       \textbf{Odpowiedź C: TAK}\\
+       Dla $k = \frac{\sqrt2}2$.
+
+       \textbf{Odpowiedź D: TAK}\\
+       Dla $k = 0$.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 10};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: TAK}\\
+       $\sin x\cos x < 0 \Leftrightarrow 2\sin x\cos x < 0 \Leftrightarrow \sin 2x < 0$.
+
+       \textbf{Odpowiedź B: TAK}\\
+       $\sin x\cos x < 0 \Leftrightarrow (\sin x < 0 \land \cos x > 0) \lor (\sin x > 0 \land \cos x < 0) \Leftrightarrow \frac{\sin x}{\cos x} < 0 \Leftrightarrow \tg x < 0$.
+
+       \textbf{Odpowiedź C: NIE}\\
+       Dla $x = \frac{3\pi}4$: $\sin x \cos x = \frac1{\sqrt2}\cdot(-\frac1{\sqrt2}) = -\frac12 < 0$, a jednocześnie $\sin x = \frac1{\sqrt2} > 0$.
+
+       \textbf{Odpowiedź D: NIE}\\
+       Dla $x = -\frac{\pi}4$: $\sin x\cos x = (-\frac1{\sqrt2})\cdot\frac1{\sqrt2} = -\frac12 < 0$, a jednocześnie $\cos x = \frac1{\sqrt2} > 0$.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 11};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: NIE}\\
+       $\sin(\frac{2009}6\pi) = \sin(167\cdot2\pi + \frac56\pi) = \sin \frac56\pi = \sin(\pi-\frac\pi6) = \sin\frac\pi6 = \frac12$.
+
+       \textbf{Odpowiedź B: TAK}\\
+       $\sin(\frac{2009}4\pi) = \sin(251\cdot2\pi + \frac\pi4) = \sin\frac\pi4 = \frac{\sqrt2}2 > \frac12$.
+
+       \textbf{Odpowiedź C: NIE}\\
+       $\sin(\frac{2009}3\pi) = \sin(334\cdot2\pi+\frac53\pi) + \sin(2\pi-\frac13\pi) = -\sin\frac\pi3 = -\frac{\sqrt3}2 < \frac12$.
+
+       \textbf{Odpowiedź D: TAK}\\
+       $\sin(\frac{2009}2\pi) = \sin(1004\cdot2\pi + \frac\pi2) = \sin\frac\pi2 = 1 > \frac12$.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 12};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+      $\frac{\sin x + \cos x}{\sin x - \cos x} = 3 \Leftrightarrow\\ \sin x + \cos x = 3\sin x - 3\cos x \Leftrightarrow\\ 2\sin x - 4\cos x = 0 \Leftrightarrow\\ \sin x = 2\cos x \Leftrightarrow\\ \tg x = 2$\\
+       \textbf{Odpowiedź A: TAK}\\
+       \textbf{Odpowiedź B: TAK}\\
+       \textbf{Odpowiedź C: TAK}\\
+       \textbf{Odpowiedź D: NIE}
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 13};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: NIE}\\
+       $\sin2011^\circ = \sin(5\cdot360^\circ+211^\circ) = \sin211^\circ$
+
+       \textbf{Odpowiedź B: NIE}\\
+       $\cos2011^\circ = \cos(5\cdot360^\circ+211^\circ) = \cos211^\circ$
+
+       \textbf{Odpowiedź C: TAK}\\
+       $\tg2011^\circ = \tg(11\cdot180^\circ+31^\circ) = \tg 31^\circ$
+
+       \textbf{Odpowiedź D: TAK}\\
+       $\ctg2011^\circ = \ctg(11\cdot180^\circ+31^\circ) = \ctg 31^\circ$
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 14};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: TAK}\\
+       $\sin x = \cos x \Leftrightarrow \tg x = 1$, a to jest spełnione dla $\left\{x:x=\frac\pi4 + k\pi, k\in\mathbb{Z}\right\}$.
+
+       \textbf{Odpowiedź B: TAK}\\
+       Z odpowiedzi A.
+
+       \textbf{Odpowiedź C: NIE}\\
+       $\cos 2x = 0 \Leftrightarrow\\
+        2x = \frac\pi2+2k\pi, k\in\mathbb{Z}\lor 2x = -\frac\pi2 + 2k\pi, k\in\mathbb{Z} \Leftrightarrow\\
+         \left\{x: x = \frac\pi4+k\pi \lor x = -\frac\pi4+k\pi, k\in\mathbb{Z}\right\}$\\
+         Dla $x = -\frac\pi4$: $\cos2x = 0 \land x\notin \mathbb{D}$.
+
+       \textbf{Odpowiedź D: NIE}\\
+       Dla $k = 0$: $\sin2x = \sin\frac\pi2 = 1$.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 15};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: TAK}\\
+       Ze wzorów redukcyjnych wiemy, że $\cos\left(\frac\pi2 - x\right) = \sin x$, zatem $\cos\left(\frac34\pi - x\right) = \cos\left(\frac\pi2 - \left(x - \frac\pi4\right)\right) = \sin\left(x-\frac\pi4\right)$.
+
+       \textbf{Odpowiedź B: NIE}\\
+       Cosinus jest parzysty, zatem $\cos\left(\frac\pi4 - x\right) = \cos\left(x-\frac\pi4\right) \neq \sin\left(x-\frac\pi4\right)$.
+
+       \textbf{Odpowiedź C: NIE}\\
+       Ze wzorów redukcyjnych wiemy, że $\sin\left(x+\frac34\pi\right) = \sin\left(\pi+x-\frac\pi4\right) = -\sin\left(x-\frac\pi4\right) \neq \sin\left(x-\frac\pi4\right)$.
+
+       \textbf{Odpowiedź D: TAK}\\
+       Ze wzorów redukcyjnych wiemy, że $\sin\left(\frac54\pi - x\right) = \sin\left(\pi-\left(x-\frac\pi4\right)\right) = \sin\left(x-\frac\pi4\right)$.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 16};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+      $\cos200^\circ = m = \cos(180^\circ+20^\circ) = -\cos20^\circ \Leftrightarrow \cos20^\circ = -m$\\
+      Z jedynki trygonometrycznej: $ \sin200^\circ = \sqrt{1-m^2}$\\
+      Ze wzorów redukcyjnych wiemy, że:\\
+      $\sin(180^\circ+20^\circ) = -\sin20^\circ$\\
+      Zatem $\sin20^\circ = -\sqrt{1-m^2}$.\\
+      $\sin40^\circ = 2\sin20^\circ\cos20^\circ = 2\cdot(-\sqrt{1-m^2})\cdot(-m) = -2m\sqrt{1-m^2}$.\\
+       \textbf{Odpowiedź A: TAK}\\
+       \textbf{Odpowiedź B: NIE}\\
+       \textbf{Odpowiedź C: NIE}\\
+       \textbf{Odpowiedź D: NIE}\\
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 17};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: TAK}\\
+       Tangens jest rosnący na przedziale $\left( 0, \frac\pi2\right)$. Kąty $\frac27\pi$ oraz $\frac37\pi$ mieszczą się w tym przedziale, i jednocześnie $\frac27\pi < \frac37\pi$.
+
+       \textbf{Odpowiedź B: TAK}\\
+       Tangens jest rosnący na przedziale $\left(\frac\pi2, \pi\right)$, oba kąty mieszczą się w tym przedziale, przy czym $\frac47\pi < \frac57\pi$.
+
+       \textbf{Odpowiedź C: TAK}\\
+       Ze wzorów redukcyjnych wiemy, że $\tg(\pi-x) = -\tg x$, zatem $\tg \frac47\pi = -\tg\frac37\pi$. Wiemy, że w przedziale $\langle \frac\pi7, \frac37\pi\rangle$ tangens jest rosnący, zatem $\tg \frac\pi7 < -\tg\frac47\pi$, zatem suma ich jest mniejsza od 0.
+
+       \textbf{Odpowiedź D: TAK}\\
+       Ze wzorów redukcyjnych wiemy, że $\tg(\pi-x) = -\tg x$, zatem $\tg\frac57\pi = -\tg\frac27\pi$. Zatem $\tg\frac27\pi + \tg\frac57\pi = 0 \le 0$.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 18};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: TAK}\\
+       Z wykresu.
+
+       \textbf{Odpowiedź B: TAK}\\
+       Z wykresu.
+
+       \textbf{Odpowiedź C: NIE}\\
+       Na podstawie odpowiedzi A.
+
+       \textbf{Odpowiedź D: NIE}\\
+       Na podstawie odpowiedzi B.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 19};
+\end{tikzpicture}
+
+\phantom{}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+       \textbf{Odpowiedź A: TAK}\\
+       Z wykresu.
+
+       \textbf{Odpowiedź B: TAK}\\
+       Z wykresu.
+
+       \textbf{Odpowiedź C: NIE}\\
+       Z wykresu.
+
+       \textbf{Odpowiedź D: NIE}\\
+       Z wykresu.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 20};
+\end{tikzpicture}
+
+\end{multicols*}
+
+\end{document}

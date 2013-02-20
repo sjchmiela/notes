@@ -1,0 +1,247 @@
+\documentclass [a4paper, 10pt]{article}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Zadanie domowe},    % title
+    pdfauthor={Stanisław Chmiela},     % author
+    pdfsubject={Zadanie domowe},   % subject of the document
+    pdfcreator={Stanisław Chmiela},   % creator of the document
+    pdfproducer={Stanisław Chmiela}, % producer of the document
+    pdfkeywords={matematyka} {zadanie domowe}, % list of keywords
+    pdfnewwindow=false,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=BrickRed,          % color of internal links
+    citecolor=PineGreen,        % color of links to bibliography
+    filecolor=RawSienna,      % color of file links
+    urlcolor=MidnightBlue      % color of external links
+}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usetikzlibrary{shapes,snakes,trees}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\linespread{1.3}
+\author{Stanisław Chmiela}
+\date{11 grudnia 2012}
+\title{Zadanie domowe}
+\begin{document}
+\maketitle
+
+\tikzstyle{mybox} = [draw=black, fill=white, thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[fill=black, rounded corners, text=white, font=\bfseries, right=7pt]
+\begin{multicols*}{2}
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+        Rozpatrzmy najpierw prawdopodobieństwa wylosowania białej kuli w odpowiednich urnach:
+        \begin{enumerate}[I.]
+            \item $\frac3{10}$
+            \item $\frac5{10} = \frac12$
+            \item $\frac7{10}$
+            \item $0$
+        \end{enumerate}
+        Prawdopodobieństwo pójścia ponumerowanymi drogami jest równe. Zatem do odpowiednich urn trafimy z takimi prawdopodobieństwami:
+        \begin{enumerate}[I.]
+            \item $\frac14 + \frac14 = \frac12$
+            \item $\frac13\cdot\frac12 = \frac16$
+            \item $\frac13\cdot\frac12 = \frac16$
+            \item $\frac14$
+        \end{enumerate}
+        Zsumujmy wyniki:
+        \[
+            \frac12\cdot\frac3{10} + \frac16\cdot\frac12 + \frac16\cdot\frac7{10} + \frac14\cdot0 = \mathbf{\frac7{20}}
+        \]
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 8.19};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+        Rozwiążmy zadanie za pomocą drzewka stochastycznego. Ale najpierw policzmy pewne wartości:
+        \begin{itemize}
+            \item Prawdopodobieństwo wylosowania nieforemnego cukierka: $5\%\cdot40\%+4\%\cdot35\%+2\%\cdot25\% = \frac{271}{50000}$.
+            \item Prawdopodobieństwo wylosowania foremnego cukierka: $1- \frac{271}{50000} = \frac{49729}{50000}$.
+        \end{itemize}
+        \tikzstyle{level 1}=[level distance=2.5cm, sibling distance=2cm]
+        \tikzstyle{level 2}=[level distance=2.5cm, sibling distance=1cm]
+        \tikzstyle{bag} = [text width=4em, text centered]
+        \begin{tikzpicture}[grow=down, sloped]
+        \node[bag] {Losujmy}
+            child {
+                node[bag] {$F_1$}
+                child {
+                        node[bag] {Dobry}
+                        edge from parent
+                        node[above] {98\%}
+                }
+                child {
+                        node[bag] {Zły}
+                        edge from parent
+                        node[above]{2\%}
+                }
+                edge from parent
+                node[above] {$\frac{25}{100}$}
+            }
+            child {
+                node[bag] {$F_2$}
+                child {
+                        node[bag] {Dobry}
+                        edge from parent
+                        node[above] {96\%}
+                }
+                child {
+                        node[bag] {Zły}
+                        edge from parent
+                        node[above]{4\%}
+                }
+                edge from parent
+                node[above] {$\frac{35}{100}$}
+            }
+            child {
+                node[bag] {$F_3$}
+                child {
+                        node[bag] {Dobry}
+                        edge from parent
+                        node[above] {95\%}
+                }
+                child {
+                        node[bag] {Zły}
+                        edge from parent
+                        node[above]{5\%}
+                }
+                edge from parent
+                node[above] {$\frac{40}{100}$}
+            };
+        \end{tikzpicture}
+        \\
+        Oznaczmy zdarzenia:
+        \begin{itemize}
+            \item Zdarzenie $A$ -- wylosowano dobrego cukierka,
+            \item Zdarzenie $B$ -- wylosowano cukierka z firmy $F_3$.
+        \end{itemize}
+        Odpowiedzią będzie liczba:\\
+        $P(B|A) = \frac{P(B\cap A)}{P(A)} = \frac{\frac{40}{100}\cdot95\%}{\frac{49729}{50000}} = \frac{19000}{49729} \approx \mathbf{38.21\%}$.
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 8.27};
+\end{tikzpicture}
+
+
+\end{multicols*}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.9\textwidth}
+        Prawdopodobieństwo wyrzucenia kostką do gry liczby podzielnej przez 3 (a co za tym idzie losowania z urny $U_1$): $\frac26 = \frac13$. Drzewkami stochastycznymi przeanalizujmy losowania w urnach $U_1$ i $U_2$.
+        \tikzstyle{level 1}=[level distance=2.5cm, sibling distance=2.5cm]
+        \tikzstyle{level 2}=[level distance=2.5cm, sibling distance=1cm]
+        \tikzstyle{bag} = [text width=4em, text centered]
+        \begin{center}
+        \begin{multicols*}{2}
+        \textbf{Urna }$\mathbf{U_1}$\\
+        \begin{tikzpicture}[grow=down, sloped]
+        \node[bag] {$6B, 4C$}
+            child {
+                node[bag] {{B}\\${5B, 4C}$}        
+                    child {
+                        node[bag] {{B}}
+                        edge from parent
+                        node[above] {${\frac{5}{9}}$}
+                        node[below]  {}
+                    }
+                    child {
+                        node[bag] {C}
+                        edge from parent
+                        node[above] {$\frac{4}{9}$}
+                        node[below]  {}
+                    }
+                    edge from parent 
+                    node[above] {${\frac6{10}}$}
+                    node[below]  {}
+            }
+            child {
+                node[bag] {C\\$6B, 3C$}        
+                child {
+                        node[bag] {{B}}
+                        edge from parent
+                        node[above] {${\frac{6}{9}}$}
+                        node[below]  {}
+                    }
+                    child {
+                        node[bag] {C}
+                        edge from parent
+                        node[above] {$\frac{3}{9}$}
+                        node[below]  {}
+                    }
+                    edge from parent 
+                    node[above] {${\frac4{10}}$}
+                    node[below]  {}
+            };
+        \end{tikzpicture}
+        \\\textbf{Urna }$\mathbf{U_2}$\\
+        \begin{tikzpicture}[grow=down, sloped]
+        \node[bag] {$4B, 8C$}
+            child {
+                node[bag] {{B}\\${3B, 8C}$}        
+                    child {
+                        node[bag] {{B}}
+                        edge from parent
+                        node[above] {${\frac{3}{11}}$}
+                        node[below]  {}
+                    }
+                    child {
+                        node[bag] {C}
+                        edge from parent
+                        node[above] {$\frac{8}{11}$}
+                        node[below]  {}
+                    }
+                    edge from parent 
+                    node[above] {${\frac4{12}}$}
+                    node[below]  {}
+            }
+            child {
+                node[bag] {C\\$4B, 7C$}        
+                child {
+                        node[bag] {{B}}
+                        edge from parent
+                        node[above] {${\frac{4}{11}}$}
+                        node[below]  {}
+                    }
+                    child {
+                        node[bag] {C}
+                        edge from parent
+                        node[above] {$\frac{7}{11}$}
+                        node[below]  {}
+                    }
+                    edge from parent 
+                    node[above] {${\frac7{12}}$}
+                    node[below]  {}
+            };
+        \end{tikzpicture}
+        \end{multicols*}
+        \end{center}
+        \paragraph{Podpunkt a)} Pomnóżmy prawdopodobieństwo losowania z urny $U_1$ przez prawdopodobieństwo wylosowania dwóch kul białych z tej urny, dodajmy następnie iloczyn prawdopodobieństwa losowania z urny $U_2$ oraz prawdopodobieństwa wylosowania dwóch białych kul.\\
+        $$\frac13\cdot\frac6{10}\cdot\frac59+\frac23\cdot\frac4{12}\cdot\frac3{11} = \mathbf{\frac{17}{99}}$$
+        \paragraph{Podpunkt b)} Pomnóżmy prawdopodobieństwo losowania z urny $U_1$ przez prawdopodobieństwo wylosowania dwóch kul o różnych kolorach z urny, dodajmy następnie iloczyn prawdopodobieństwa losowania z urny $U_2$ oraz prawdopodbieństwa wylosowania dwóch kul o różnych kolorach.\\
+        $$\frac13\cdot\left(\frac6{10}\cdot\frac49+\frac4{10}\cdot\frac69\right) + \frac23\cdot\left(\frac4{12}\cdot\frac8{11}+\frac7{12}\cdot\frac4{11}\right) = \mathbf{\frac{238}{495}}$$
+    \end{minipage}
+};
+\node[fancytitle] at (box.north west) {Zadanie 8.13};
+\end{tikzpicture}
+\end{document}

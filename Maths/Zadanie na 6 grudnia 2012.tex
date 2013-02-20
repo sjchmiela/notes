@@ -1,0 +1,388 @@
+\documentclass [a4paper, 10pt]{article}
+\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\hypersetup{
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={Zadanie domowe},    % title
+    pdfauthor={Stanisław Chmiela},     % author
+    pdfsubject={Zadanie domowe},   % subject of the document
+    pdfcreator={Stanisław Chmiela},   % creator of the document
+    pdfproducer={Stanisław Chmiela}, % producer of the document
+    pdfkeywords={matematyka} {zadanie domowe}, % list of keywords
+    pdfnewwindow=false,      % links in new window
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=BrickRed,          % color of internal links
+    citecolor=PineGreen,        % color of links to bibliography
+    filecolor=RawSienna,      % color of file links
+    urlcolor=MidnightBlue      % color of external links
+}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{amsfonts}
+\usepackage{multicol}
+\usetikzlibrary{shapes,snakes,trees}
+\usepackage{amsmath}
+\linespread{1.3}
+\author{Stanisław Chmiela}
+\title{Zadanie domowe}
+\begin{document}
+\maketitle
+
+\tikzstyle{mybox} = [draw=black, fill=white, thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=10pt]
+\tikzstyle{fancytitle} =[fill=black, rounded corners, text=white, font=\bfseries]
+\begin{multicols*}{2}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+        $\Omega = \{(a_1,\dots, a_n): a_1,\dots,a_n \in \{1,\dots,n\}\}$\\
+        $\bar\Omega = n!$\\
+        $A_1 = \{(a_1,\dots,a_n)\in\Omega: a_1 = 1\}$\\
+        $A_2 = \{(a_1,\dots,a_n)\in\Omega: a_2 = 2\}$\\
+        $A_{1,2} = \{(a_1,\dots,a_n)\in\Omega: a_1 = 1 \land a_2 = 2\}$\\
+        $\bar A_1 = \bar A_2 = (n-1)!$\\
+        $\bar A_{1,2} = (n-2)!$\\
+        $B$ -- listy 1 i 2 nie trafiły do swoich adresatów.\\
+        $\bar B = \bar\Omega - \bar A_1 - \bar A_2 + \bar A_{1,2} = n! - 2\cdot(n-1)! + (n-2)! = (n-2)!(n(n-1) - 2\cdot(n-1) + 1) = (n-2)!(n^2-n-2n+2+1) = (n-2)!(n^2-3n+3)$\\
+        $P(B) = \frac{\bar B}{\bar\Omega} = \frac{(n-2)!(n^2-3n+3)}{n!} = \mathbf{\frac{n^2-3n+3}{n(n-1)}}$
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Zadanie 7.18};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.4\textwidth}
+    Przeanalizujmy to zadanie za pomocą drzewka stochastycznego:
+    
+\tikzstyle{level 1}=[level distance=2.5cm, sibling distance=2.5cm]
+\tikzstyle{level 2}=[level distance=2.5cm, sibling distance=1cm]
+\tikzstyle{bag} = [text width=4em, text centered]
+\begin{tikzpicture}[grow=down, sloped]
+\node[bag] {$6B, 3C$}
+    child {
+        node[bag] {{B}\\${5B, 3C}$}        
+            child {
+                node[bag] {{B}}
+                edge from parent
+                node[above] {${\frac{5}{8}}$}
+                node[below]  {}
+            }
+            child {
+                node[bag] {C}
+                edge from parent
+                node[above] {$\frac{3}{8}$}
+                node[below]  {}
+            }
+            edge from parent 
+            node[above] {${\frac69}$}
+            node[below]  {}
+    }
+    child {
+        node[bag] {C\\$6B, 2C$}        
+        child {
+                node[bag] {{B}}
+                edge from parent
+                node[above] {${\frac{6}{8}}$}
+                node[below]  {}
+            }
+            child {
+                node[bag] {C}
+                edge from parent
+                node[above] {$\frac{2}{8}$}
+                node[below]  {}
+            }
+            edge from parent 
+            node[above] {${\frac39}$}
+            node[below]  {}
+    };
+\end{tikzpicture}
+\\
+\textbf{Podpunkt a)} Prawdopodobieństwo wyciągnięcia dwóch kul białych równe jest $P(B) = \frac69\cdot\frac58 = \mathbf{\frac{25}{36}}$.\\
+\textbf{Podpunkt b)} Prawdopodobieństwo wyciągnięcia dwóch kul czarnych równe jest $P(C) = \frac39\cdot\frac28 = \mathbf{\frac{1}{12}}$.
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Zadanie 7.19};
+\end{tikzpicture}
+
+
+\end{multicols*}
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.9\textwidth}
+    Przeanalizujmy to zadanie za pomocą drzewka stochastycznego:
+    
+\tikzstyle{level 1}=[level distance=3.5cm, sibling distance=8cm]
+\tikzstyle{level 2}=[level distance=3.5cm, sibling distance=4cm]
+\tikzstyle{level 3}=[level distance=3.5cm, sibling distance=1cm]
+\tikzstyle{bag} = [text width=3em, text centered]
+\begin{tikzpicture}[grow=down, sloped]
+\node[bag] {$5B, 4C$}
+    child {
+        node[bag] {{B}\\${4B, 4C}$}        
+            child {
+                node[bag] {B\\$3B, 4C$}
+                        child {
+                        node[bag] {B}
+                        edge from parent
+                        node[above] {${\frac{3}{7}}$}
+                        node[below]  {}
+                    }
+                    child {
+                        node[bag] {C}
+                        edge from parent
+                        node[above] {$\frac{4}{7}$}
+                        node[below]  {}
+                    }
+                edge from parent
+                node[above] {${\frac{1}{2}}$}
+                node[below]  {}
+            }
+            child {
+                node[bag] {C\\$4B, 3C$}
+                    child {
+                        node[bag] {B}
+                        edge from parent
+                        node[above] {${\frac{4}{7}}$}
+                        node[below]  {}
+                    }
+                    child {
+                        node[bag] {C}
+                        edge from parent
+                        node[above] {$\frac{3}{7}$}
+                        node[below]  {}
+                    }
+                edge from parent
+                node[above] {$\frac{1}{2}$}
+                node[below]  {}
+            }
+            edge from parent 
+            node[above] {${\frac59}$}
+            node[below]  {}
+    }
+    child {
+        node[bag] {C\\$5B, 3C$}        
+             child {
+                node[bag] {B\\$4B, 3C$}
+                    child {
+                        node[bag] {B}
+                        edge from parent
+                        node[above] {${\frac{4}{7}}$}
+                        node[below]  {}
+                    }
+                    child {
+                        node[bag] {C}
+                        edge from parent
+                        node[above] {$\frac{3}{7}$}
+                        node[below]  {}
+                    }
+                edge from parent
+                node[above] {$\frac{5}{8}$}
+                node[below]  {}
+            }
+            child {
+                node[bag] {C\\$5B, 2C$}
+                    child {
+                        node[bag] {B}
+                        edge from parent
+                        node[above] {${\frac{5}{7}}$}
+                        node[below]  {}
+                    }
+                    child {
+                        node[bag] {C}
+                        edge from parent
+                        node[above] {$\frac{2}{7}$}
+                        node[below]  {}
+                    }
+                edge from parent
+                node[above] {$\frac{3}{8}$}
+                node[below]  {}
+            }
+            edge from parent 
+            node[above] {${\frac49}$}
+            node[below]  {}
+    };
+\end{tikzpicture}
+\\
+W pierwszym losowaniu odkładamy jedną kulę. Następnie losujemy dwie kule na raz, czyli losujemy dwie kule kolejno, bez zwracania.\\
+\textbf{Podpunkt a)} Prawdopodobieństwo wyciągnięcia dwóch kul białych za drugim razem równe jest $P(B) = \frac37\cdot\frac12\frac59+\frac47\cdot\frac58\cdot\frac49 = \frac5{42}+ \frac{10}{63} = \mathbf{\frac{5}{18}}$.\\
+\textbf{Podpunkt b)} Prawdopodobieństwo wyciągnięcia dwóch kul różnokolorowych za drugim razem równe jest $P(D) = \frac47\cdot\frac12\frac59+\frac47\cdot\frac12\cdot\frac59+\frac37\cdot\frac58\cdot\frac49+\frac57\cdot\frac38\cdot\frac49 = \mathbf{\frac{5}{9}}$.
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Zadanie 8.3};
+\end{tikzpicture}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.9\textwidth}
+    Przeanalizujmy to zadanie za pomocą drzewka stochastycznego. Najpierw sprawdźmy z jakimi prawdopodobieństwami jakie dwie kule wylosujemy z urny $U_1$.
+    
+\tikzstyle{level 1}=[level distance=2cm, sibling distance=8cm]
+\tikzstyle{level 2}=[level distance=2cm, sibling distance=4cm]
+\tikzstyle{level 3}=[level distance=3.5cm, sibling distance=1cm]
+\tikzstyle{bag} = [text width=5em, text centered]
+\begin{tikzpicture}[grow=down, sloped]
+\node[bag] {$2C, pB$}
+    child {
+        node[bag] {C\\${1C, pB}$}        
+            child {
+                node[bag] {C}
+                edge from parent
+                node[above] {${\frac{1}{p+1}}$}
+                node[below]  {}
+            }
+            child {
+                node[bag] {B}
+                edge from parent
+                node[above] {$\frac{p}{p+1}$}
+                node[below]  {}
+            }
+            edge from parent 
+            node[above] {${\frac2{p+2}}$}
+            node[below]  {}
+    }
+    child {
+        node[bag] {B\\$2C, (p-1)B$}        
+             child {
+                node[bag] {C}
+                edge from parent
+                node[above] {$\frac{2}{p+1}$}
+                node[below]  {}
+            }
+            child {
+                node[bag] {B}
+                edge from parent
+                node[above] {$\frac{p-1}{p+1}$}
+                node[below]  {}
+            }
+            edge from parent 
+            node[above] {${\frac{p-2}{p+2}}$}
+            node[below]  {}
+    };
+\end{tikzpicture}
+\\
+    Losując dwie kule z urny $U_1$ możemy otrzymać z różnymi prawdopodobieństwami 3 kombinacje kul:
+    \begin{enumerate}
+        \item CC: $\frac{2}{p+2}\cdot\frac1{p+1} = \frac2{(p+1)(p+2)}$
+        \item BC: $\frac2{p+2}\cdot\frac{p}{p+1} + \frac{p-2}{p+2}\cdot\frac2{p+1} = \frac{4p-4}{(p+1)(p+2)}$
+        \item BB: $\frac{p-2}{p+2}\cdot\frac{p-1}{p+1} = \frac{(p-1)(p-2)}{(p+1)(p+2)}$
+    \end{enumerate}
+    Zatem mamy 3 możliwe zestawy liczb kul w urnie $U_2$ po przełożeniu wylosowanych z $U_1$. Policzmy dla tych układów prawdopodobieństwo wylosowania spośród nich kuli białej:
+    \begin{enumerate}
+        \item $5B, 5C: \frac5{10} = \frac12$
+        \item $6B, 4C: \frac6{10} = \frac35$
+        \item $7B, 10C: \frac7{10}$
+    \end{enumerate}
+    Pamiętajmy jednak, że te prawdopodobieństwa należy pomnożyć przez prawdopodbieństwa wypadnięcia takich układów. Zatem, wiedząc, że suma prawdopodobieństw musi być większa od $0.6$, rozwiążmy nierówność:
+    \begin{eqnarray*}
+\frac12\cdot\frac2{(p+1)(p+2)} + \frac35\cdot\frac{4p-4}{(p+1)(p+2)} + \frac7{10}\cdot\frac{(p-1)(p-2)}{(p+1)(p+2)} &>& \frac6{10}\\
+\frac{10}{(p+1)(p+2)} + \frac{6(4p-4)}{(p+1)(p+2)} + \frac{7(p-1)(p-2)}{(p+1)(p+2)} &>& 6\\
+10 + 24p - 24 + 7p^2 - 21p + 14 &>& 6p^2 + 18p + 18\\
+ 7p^2 +3p &>& 6p^2 + 18p + 18\\
+ p^2 - 15p - 18 &>& 0
+    \end{eqnarray*}
+ Z otrzymanej nierówności kwadratowej otrzymujemy: $p > \frac32(5+\sqrt{33})$ lub $p < \frac32(5-\sqrt{33})$. Przyrównajmy to do najbliższych liczb całkowitych: $p > 17 > \frac32(5+\sqrt{33})$ lub $p < -2 < \frac32(5-\sqrt{33})$.\\
+ \textbf{Zatem $\mathbf p$ musi być równe przynajmniej 17}, by prawdopodobieństwo wylosowania białej kuli z urny $U_2$ było większe od $0.6$.
+
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Zadanie 8.6};
+\end{tikzpicture}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.9\textwidth}
+    Przeanalizujmy to zadanie za pomocą drzewka stochastycznego, ograniczając je tylko do wierzchołków, przez które może przechodzić ścieżka, przechodząca przez 2 białe wierzchołki.
+    
+\tikzstyle{level 1}=[level distance=2cm, sibling distance=8cm]
+\tikzstyle{level 2}=[level distance=2cm, sibling distance=4cm]
+\tikzstyle{level 3}=[level distance=2cm, sibling distance=1cm]
+\tikzstyle{bag} = [text width=5em, text centered]
+\begin{tikzpicture}[grow=down, sloped]
+\node[bag] {$3C, 7B$}
+    child {
+        node[bag] {C\\${5C, 7B}$}        
+            child {
+                node[bag] {C\\$7C, 7B$}
+                edge from parent
+                node[above] {${\frac{5}{12}}$}
+                node[below]  {}
+            }
+            child {
+                node[bag] {B\\$5C, 9B$}
+                child {
+                    node[bag] {B}
+                    edge from parent
+                    node[above] {${\frac9{14}}$}
+                    node[below]  {}
+                }
+                edge from parent
+                node[above] {$\frac{7}{12}$}
+                node[below]  {}
+            }
+            edge from parent 
+            node[above] {${\frac3{10}}$}
+            node[below]  {}
+    }
+    child {
+        node[bag] {B\\$3C, 9B$}  
+             child {
+                node[bag] {C\\$5C, 9B$}
+                child {
+                    node[bag] {B}
+                    edge from parent
+                    node[above] {${\frac9{14}}$}
+                    node[below]  {}
+                }
+                edge from parent
+                node[above] {${\frac{3}{12}}$}
+                node[below]  {}
+            }
+             child {
+                node[bag] {B\\$3C, 11B$}
+                child {
+                    node[bag] {C}
+                    edge from parent
+                    node[above] {${\frac3{14}}$}
+                    node[below]  {}
+                }
+                child {
+                    node[bag] {B}
+                    edge from parent
+                    node[above] {${\frac{11}{14}}$}
+                    node[below]  {}
+                }
+                edge from parent
+                node[above] {${\frac{9}{12}}$}
+                node[below]  {}
+            }
+            edge from parent 
+            node[above] {${\frac7{10}}$}
+            node[below]  {}
+    };
+\end{tikzpicture}
+\\
+Zliczmy prawdopodobieństwa dwukrotnego wylosowania białej kuli.
+\[
+    P(A) = \frac3{10}\cdot\frac7{12}\cdot\frac9{14} + \frac7{10}\cdot\frac3{12}\cdot\frac9{14} + \frac7{10}\cdot\frac9{12}\cdot\frac3{14} = \mathbf{\frac{27}{80}}
+\]
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {Zadanie 8.8};
+\end{tikzpicture}
+
+\end{document}
